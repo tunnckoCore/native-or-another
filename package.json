@@ -1,0 +1,43 @@
+{
+  "name": "native-or-another",
+  "version": "1.0.0",
+  "description": "Use either the native Promise or Micropromise (or another)",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm install && ./node_modules/.bin/jshint ./*.js",
+    "test": "npm run lint && NODE_ENV=test ./node_modules/.bin/mocha",
+    "test-cov": "npm test && NODE_ENV=test node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test-travis": "npm test && NODE_ENV=test node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly"
+  },
+  "author": {
+    "name": "Charlike Make Reagent",
+    "email": "mameto_100@mail.bg",
+    "url": "https://github.com/tunnckoCore",
+    "twitter": "https://twitter.com/tunnckoCore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tunnckoCore/native-or-another.git"
+  },
+  "keywords": [
+    "promise",
+    "promises",
+    "promises-aplus",
+    "micropromise",
+    "micro",
+    "Promises/A+"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "*",
+    "istanbul": "*",
+    "jshint": "*",
+    "mocha": ">=2",
+    "micropromise": "~0.4.6",
+    "mocha-lcov-reporter": "*"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/tunnckoCore/native-or-another/blob/master/license.md"
+  }]
+}
