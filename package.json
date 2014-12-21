@@ -1,6 +1,6 @@
 {
   "name": "native-or-another",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Export either the native Promise or Bluebird (using native-or-bluebird) as deferred object.",
   "scripts": {
     "lint": "jshint . && jscs . --reporter inline",
