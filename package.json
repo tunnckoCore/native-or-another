@@ -1,43 +1,45 @@
 {
   "name": "native-or-another",
   "version": "1.0.0",
-  "description": "Use either the native Promise or Micropromise (or another)",
-  "main": "index.js",
+  "description": "Export either the native Promise or Bluebird (using native-or-bluebird) as deferred object.",
   "scripts": {
-    "lint": "npm install && ./node_modules/.bin/jshint ./*.js",
-    "test": "npm run lint && NODE_ENV=test ./node_modules/.bin/mocha",
-    "test-cov": "npm test && NODE_ENV=test node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
-    "test-travis": "npm test && NODE_ENV=test node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly"
+    "lint": "jshint . && jscs . --reporter inline",
+    "test": "mocha",
+    "test-cov": "istanbul cover _mocha",
+    "test-travis": "istanbul cover _mocha --report lcovonly"
   },
   "author": {
     "name": "Charlike Make Reagent",
     "email": "mameto_100@mail.bg",
-    "url": "https://github.com/tunnckoCore",
-    "twitter": "https://twitter.com/tunnckoCore"
+    "url": "https://github.com/tunnckoCore"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/tunnckoCore/native-or-another.git"
   },
   "keywords": [
+    "aplus",
+    "bluebird",
+    "deferred",
+    "export",
+    "exports",
+    "native",
+    "object",
     "promise",
     "promises",
-    "promises-aplus",
-    "micropromise",
-    "micro",
-    "Promises/A+"
+    "promises-aplus"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "coveralls": "*",
-    "istanbul": "*",
-    "jshint": "*",
-    "mocha": ">=2",
-    "micropromise": "~0.4.6",
-    "mocha-lcov-reporter": "*"
-  },
-  "licenses": [{
+  "license": {
     "type": "MIT",
     "url": "https://github.com/tunnckoCore/native-or-another/blob/master/license.md"
-  }]
+  },
+  "dependencies": {
+    "native-or-bluebird": "^1.1.2"
+  },
+  "devDependencies": {
+    "bluebird": "^2.4.1",
+    "istanbul-harmony": "^0.3.1",
+    "mocha": "^2.0.1",
+    "mocha-lcov-reporter": "^0.0.1"
+  }
 }

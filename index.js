@@ -1,5 +1,5 @@
 /**
- * native-or-anothor <https://github.com/tunnckoCore/native-or-anothor>
+ * native-or-another <https://github.com/tunnckoCore/native-or-another>
  *
  * Copyright (c) 2014 Charlike Mike Reagent, contributors.
  * Released under the MIT license.
@@ -7,13 +7,15 @@
 
 'use strict';
 
-var PROMISE_LIB = 'micropromise';
-module.exports = require('./promise')
+var Promize = require('native-or-bluebird');
 
-/* istanbul ignore next */
-if (!module.exports) {
-  console.error('The file "%s" requires `Promise`,', module.parent.filename)
-  console.error('but neither `%s` nor the native `Promise` implementation were found.', PROMISE_LIB)
-  console.error('Please install `%s` yourself.', PROMISE_LIB)
-  process.exit(1)
-}
+module.exports = function PromiseDeferred() {
+  var deferred = {};
+
+  deferred.promise = new Promize(function(resolve, reject) {
+    deferred.resolve = resolve;
+    deferred.reject = reject;
+  });
+
+  return deferred;
+};

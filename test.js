@@ -1,5 +1,5 @@
 /**
- * native-or-anothor <https://github.com/tunnckoCore/native-or-anothor>
+ * native-or-another <https://github.com/tunnckoCore/native-or-another>
  *
  * Copyright (c) 2014 Charlike Mike Reagent, contributors.
  * Released under the MIT license.
@@ -7,32 +7,28 @@
 
 'use strict';
 
-/**
- * Module dependencies.
- */
-var assert = require('assert')
-var Promize = null;
+var assert = require('assert');
+var Deferred = require('./index');
 
-describe('require("native-or-anothor")', function () {
-  it('should return a Promise implementation', function () {
-    Promize = require('./index');
+describe('require("native-or-another")', function() {
+  it('should return deferred Promise implementation', function(done) {
+    var defer = new Deferred();
 
-    return new Promize(function (resolve) {
-      resolve(1)
-    }).then(function (val) {
-      assert.equal(val, 1)
-    })
-  })
-})
+    defer.resolve(1);
+    defer.promise.then(function fulfilled(val) {
+      assert.strictEqual(val, 1);
+      done();
+    });
+  });
 
-describe('require("native-or-anothor/promise")', function () {
-  it('should return a Promise implementation', function () {
-    Promize = require('./promise')
+  it('should catch errors correctly', function(done) {
+    var defer = new Deferred();
 
-    return new Promize(function (resolve) {
-      resolve(1)
-    }).then(function (val) {
-      assert.equal(val, 1)
-    })
-  })
-})
+    defer.reject(new Error('custom error'));
+    defer.promise.catch(function rejected(err) {
+      assert.ok(err instanceof Error);
+      assert.strictEqual(err.message, 'custom error');
+      done();
+    });
+  });
+});
