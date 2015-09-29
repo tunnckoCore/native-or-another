@@ -1,6 +1,6 @@
 {
   "name": "native-or-another",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Always will expose native `Promise` if available, otherwise `Bluebird` but only if you don't give another promise module like `q` or `promise` or what you want.",
   "repository": "tunnckoCore/native-or-another",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
