@@ -1,34 +1,39 @@
-/**
+/*!
  * native-or-another <https://github.com/tunnckoCore/native-or-another>
  *
- * Copyright (c) 2014 Charlike Mike Reagent, contributors.
+ * Copyright (c) 2014-2015 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
  * Released under the MIT license.
  */
 
-'use strict';
+/* jshint asi:true */
 
-var assert = require('assert');
-var Deferred = require('./index');
+'use strict'
 
-describe('require("native-or-another")', function() {
-  it('should return deferred Promise implementation', function(done) {
-    var defer = new Deferred();
+var test = require('assertit')
+var getPromise = require('./index')
 
-    defer.resolve(1);
-    defer.promise.then(function fulfilled(val) {
-      assert.strictEqual(val, 1);
-      done();
-    });
-  });
+test('should use native Promise if available, Bluebird otherwise', function (done) {
+  var Promize = getPromise()
+  var promise = new Promize(function (resolve, reject) {
+    resolve(123)
+  })
 
-  it('should catch errors correctly', function(done) {
-    var defer = new Deferred();
+  promise.then(function (res) {
+    test.strictEqual(res, 123)
+    done()
+  })
+})
 
-    defer.reject(new Error('custom error'));
-    defer.promise.catch(function rejected(err) {
-      assert.ok(err instanceof Error);
-      assert.strictEqual(err.message, 'custom error');
-      done();
-    });
-  });
-});
+test('should use given custom promise module', function (done) {
+  var Promize = getPromise(require('pinkie'))
+  var promise = new Promize(function (resolve, reject) {
+    resolve(123)
+  })
+
+  promise.then(function (res) {
+    test.strictEqual(res, 123)
+    test.strictEqual(Promize.___customPromise, true)
+    done()
+  })
+  done()
+})
