@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "assertit": "^0.1.0",
-    "pinkie": "^1.0.0"
+    "pinkie": "^1.0.0",
+    "semver": "^5.0.3"
   },
   "files": [
     "index.js"

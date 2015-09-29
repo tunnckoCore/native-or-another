@@ -10,6 +10,7 @@
 'use strict'
 
 var test = require('assertit')
+var semver = require('semver')
 var getPromise = require('./index')
 
 test('should use native Promise if available, Bluebird otherwise', function (done) {
@@ -20,20 +21,22 @@ test('should use native Promise if available, Bluebird otherwise', function (don
 
   promise.then(function (res) {
     test.strictEqual(res, 123)
+    if (semver.lt(process.version, '0.11.13')) {
+      test.strictEqual(Promize.___bluebirdPromise, true)
+    }
     done()
-  })
+  }, done)
 })
 
 test('should use given custom promise module', function (done) {
   var Promize = getPromise(require('pinkie'))
-  var promise = new Promize(function (resolve, reject) {
-    resolve(123)
-  })
+  var promise = Promize.resolve(456)
 
   promise.then(function (res) {
-    test.strictEqual(res, 123)
-    test.strictEqual(Promize.___customPromise, true)
+    test.strictEqual(res, 456)
+    if (semver.lt(process.version, '0.11.13')) {
+      test.strictEqual(Promize.___customPromise, true)
+    }
     done()
-  })
-  done()
+  }, done)
 })
