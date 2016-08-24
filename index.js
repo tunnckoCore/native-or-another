@@ -52,8 +52,9 @@ module.exports = function nativeOrAnother (Promize) {
   } catch (err) {
     console.error('The file "%s" requires `Promise`,', module.parent.filename)
     console.error('but neither `bluebird` nor `Promise` implementation were found.')
-    console.error('Please install `bluebird` yourself or give Promise implementation.')
-    console.error('See the https://github.com/tunnckoCore/native-or-another')
+    console.error('Please install `bluebird` yourself (as devDependency is enough)')
+    console.error('or give Promise implementation.')
+    console.error('See the https://github.com/tunnckoCore/native-or-another for more info.')
     process.exit(1)
     throw err
   }
