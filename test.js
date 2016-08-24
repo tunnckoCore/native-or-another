@@ -13,7 +13,7 @@ var test = require('assertit')
 var semver = require('semver')
 var getPromise = require('./index')
 
-test('should use native Promise if available, Bluebird otherwise', function (done) {
+test('should use native Promise if available, Bluebird if installed', function (done) {
   var Promize = getPromise()
   var promise = new Promize(function (resolve, reject) {
     resolve(123)

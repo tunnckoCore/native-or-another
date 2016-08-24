@@ -37,17 +37,27 @@ var NativePromise = require('native-promise')
  * ```
  *
  * @name   nativeOrAnother
- * @param  {Function} `[Prome]` custom promise module
+ * @param  {Function} `[Promize]` custom promise module
  * @return {Function} native Promise or another
  * @api public
  */
-module.exports = function nativeOrAnother (Prome) {
+module.exports = function nativeOrAnother (Promize) {
   if (NativePromise) return NativePromise
-  if (typeof Prome === 'function') {
-    Prome.___customPromise = true
-    return Prome
+  if (typeof Promize === 'function') {
+    Promize.___customPromise = true
+    return Promize
   }
-  Prome = require('bluebird')
-  Prome.___bluebirdPromise = true
-  return Prome
+  try {
+    Promize = require('bluebird')
+  } catch (err) {
+    console.error('The file "%s" requires `Promise`,', module.parent.filename)
+    console.error('but neither `bluebird` nor `Promise` implementation were found.')
+    console.error('Please install `bluebird` yourself or give Promise implementation.')
+    console.error('See the https://github.com/tunnckoCore/native-or-another')
+    process.exit(1)
+    throw err
+  }
+
+  Promize.___bluebirdPromise = true
+  return Promize
 }
