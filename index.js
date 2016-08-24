@@ -19,6 +19,9 @@ var NativePromise = require('native-promise')
  * const fs = require('fs')
  * const getPromise = require('native-or-another')
  * const NativeOrBluebird = getPromise()
+ * // => `bluebird` promise, but only if installed,
+ * // throws otherwise
+ *
  * const NativeOrPromise = getPromise(require('promise'))
  * const NativeOrPinkie = getPromise(require('pinkie'))
  * const NativeOrQ = getPromise(require('q'))
@@ -42,7 +45,10 @@ var NativePromise = require('native-promise')
  * @api public
  */
 module.exports = function nativeOrAnother (Promize) {
-  if (NativePromise) return NativePromise
+  if (NativePromise) {
+    NativePromise.___nativePromise = true
+    return NativePromise
+  }
   if (typeof Promize === 'function') {
     Promize.___customPromise = true
     return Promize
@@ -55,10 +61,8 @@ module.exports = function nativeOrAnother (Promize) {
     console.error('Please install `bluebird` yourself (as devDependency is enough)')
     console.error('or give Promise implementation.')
     console.error('See the https://github.com/tunnckoCore/native-or-another for more info.')
-    process.exit(1)
     throw err
   }
-
   Promize.___bluebirdPromise = true
   return Promize
 }
