@@ -11,7 +11,8 @@ var NativePromise = require('native-promise')
 
 /**
  * Always will expose native `Promise` if available.
- * Otherwise given promise module or Bluebird.
+ * Otherwise given promise module or Bluebird if installed,
+ * otherwise throws with message.
  *
  * **Example**
  *
@@ -42,6 +43,11 @@ var NativePromise = require('native-promise')
  * @name   nativeOrAnother
  * @param  {Function} `[Promize]` custom promise module
  * @return {Function} native Promise or another
+ * @throws {Error} If
+ *     1. no native Promise support AND
+ *     2. no `Promize` implementation (constructor) were given AND
+ *     3. no `bluebird` were not found/installed (as devDependency is enough)
+ *
  * @api public
  */
 module.exports = function nativeOrAnother (Promize) {

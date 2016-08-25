@@ -2,7 +2,7 @@
 
 > Always will expose native `Promise` if available, otherwise `Bluebird` but only if you don't give another promise module like `q` or `promise` or what you want.
 
-**Heads up: v3 is here! See the changelog.md**
+**Heads up: v4 is there! See the CHANGELOG.md**
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
@@ -21,16 +21,23 @@ const getPromise = require('native-or-another')
 ```
 
 ### [nativeOrAnother](./index.js#L44)
-> Always will expose native `Promise` if available. Otherwise given promise module or Bluebird.
+> Always will expose native `Promise` if available. Otherwise given promise module or Bluebird if installed, otherwise throws with message.
 
-- `[Prome]` **{Function}** custom promise module    
-- `returns` **{Function}** native Promise or another  
+- `[Promize]` **{Function}** custom promise module    
+- `returns` **{Function}** native Promise or another
+- `throws` **{Error}** possible when
+  1. no native Promise support AND
+  2. no `Promize` implementation (constructor) were given AND
+  3. no `bluebird` were not found/installed (as devDependency is enough)
 
 **Example**
 
 ```js
 const fs = require('fs')
 const NativeOrBluebird = getPromise()
+// => `bluebird` promise, but only if installed,
+// throws otherwise
+
 const NativeOrPromise = getPromise(require('promise'))
 const NativeOrPinkie = getPromise(require('pinkie'))
 const NativeOrQ = getPromise(require('q'))
