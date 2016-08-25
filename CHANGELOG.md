@@ -1,5 +1,19 @@
 
 
+## v4.0.0 - 2016-08-25
+- Release v4.0.0 / npm@v4.0.0
+- update travis builds, update docs
+- replace `assertit` it with `mukla`
+- breaking: remove `bluebird` from dependencies
+
+Throws if not native Promise support and not `Promize` were given and not `bluebird` were found. So if you wanna have Promise in `node@0.10` or such, you should install `bluebird` as `devDependency` or to pass some Promise implementation to that package.
+
+It is removed, because `bluebird` is huge as `kb` and it will be there always, no matter if your environment have support for native Promise.
+
+## v3.0.2 - 2016-01-13
+- Release v3.0.2 / npm@v3.0.2
+- greenkeeper update all deps
+
 ## v3.0.1 - 2015-09-29
 - Release v3.0.1 / npm@v3.0.1
 - fix/update tests - ensure properties exists and works on 0.10
