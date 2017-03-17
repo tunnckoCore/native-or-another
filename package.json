@@ -79,7 +79,10 @@
       "once",
       "standard-version",
       "verb",
-      "verb-generate-readme"
+      "verb-generate-readme",
+      "any-promise",
+      "native-promise",
+      "try-catch-core"
     ],
     "lint": {
       "reflinks": true
