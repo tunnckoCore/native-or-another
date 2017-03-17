@@ -55,7 +55,8 @@ function tryLoadCommon () {
   while (i++ < len) {
     var lib = commonPromiseLibs[i]
     var ret = tryCatch(function () {
-      return require(lib)
+      var ret = require(lib)
+      return ret.Promise || ret
     }, { return: true })
 
     if (ret instanceof Error) {
