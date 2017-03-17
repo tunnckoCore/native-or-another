@@ -60,12 +60,27 @@
     ],
     "related": {
       "list": [
-        "always-done",
-        "minibase",
-        "try-catch-core"
+        "try-catch-callback",
+        "native-promise",
+        "redolent",
+        "clean-stacktrace",
+        "stacktrace-metadata",
+        "find-callsite"
       ],
       "highlight": "always-done"
     },
+    "reflinks": [
+      "always-done",
+      "async-done",
+      "base",
+      "charlike",
+      "commitizen",
+      "dezalgo",
+      "once",
+      "standard-version",
+      "verb",
+      "verb-generate-readme"
+    ],
     "lint": {
       "reflinks": true
     }
