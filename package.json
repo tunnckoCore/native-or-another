@@ -41,7 +41,30 @@
     "index.js",
     "register.js"
   ],
-  "keywords": [],
+  "keywords": [
+    "any",
+    "any-promise",
+    "autoload",
+    "bluebird",
+    "common",
+    "common-promise",
+    "ecma",
+    "ecmascript",
+    "es2015",
+    "es6",
+    "es2017",
+    "load",
+    "load-promise",
+    "loading",
+    "native",
+    "native-promise",
+    "promise",
+    "promises",
+    "register",
+    "register-promise",
+    "registration",
+    "specification"
+  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
