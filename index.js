@@ -1,74 +1,12 @@
 /*!
  * native-or-another <https://github.com/tunnckoCore/native-or-another>
  *
- * Copyright (c) 2014-2015 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
+ * Copyright (c) Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)
  * Released under the MIT license.
  */
 
 'use strict'
 
-var NativePromise = require('native-promise')
+var register = require('./register')
 
-/**
- * Always will expose native `Promise` if available.
- * Otherwise given promise module or Bluebird if installed,
- * otherwise throws with message.
- *
- * **Example**
- *
- * ```js
- * const fs = require('fs')
- * const getPromise = require('native-or-another')
- * const NativeOrBluebird = getPromise()
- * // => `bluebird` promise, but only if installed,
- * // throws otherwise
- *
- * const NativeOrPromise = getPromise(require('promise'))
- * const NativeOrPinkie = getPromise(require('pinkie'))
- * const NativeOrQ = getPromise(require('q'))
- *
- * const promise = new NativeOrBluebird((resolve, reject) => {
- *   fs.readFile('package.json', 'utf-8', (err, res) => {
- *     if (err) return reject(err)
- *     resolve(res)
- *   })
- * })
- *
- * promise.then(data => {
- *   console.log(JSON.parse(data).name)
- *   //=> 'native-or-another'
- * })
- * ```
- *
- * @name   nativeOrAnother
- * @param  {Function} `[Promize]` custom promise module
- * @return {Function} native Promise or another
- * @throws {Error} If
- *     1. no native Promise support AND
- *     2. no `Promize` implementation (constructor) were given AND
- *     3. no `bluebird` were not found/installed (as devDependency is enough)
- *
- * @api public
- */
-module.exports = function nativeOrAnother (Promize) {
-  if (NativePromise) {
-    NativePromise.___nativePromise = true
-    return NativePromise
-  }
-  if (typeof Promize === 'function') {
-    Promize.___customPromise = true
-    return Promize
-  }
-  try {
-    Promize = require('bluebird')
-  } catch (err) {
-    console.error('The file "%s" requires `Promise`,', module.parent.filename)
-    console.error('but neither `bluebird` nor `Promise` implementation were found.')
-    console.error('Please install `bluebird` yourself (as devDependency is enough)')
-    console.error('or give Promise implementation.')
-    console.error('See the https://github.com/tunnckoCore/native-or-another for more info.')
-    throw err
-  }
-  Promize.___bluebirdPromise = true
-  return Promize
-}
+module.exports = register({ global: false })

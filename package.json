@@ -1,34 +1,73 @@
 {
   "name": "native-or-another",
   "version": "4.0.0",
-  "description": "Always will expose native `Promise` if available, otherwise `Bluebird` but only if you don't give another promise module like `q` or `promise` or what you want.",
+  "description": "Guaranteed way for getting a Promise. Always native Promise if available, otherwise looks for common promise libraries and loads which is installed. Allows registering custom Promise implementation in node < 0.12 versions",
   "repository": "tunnckoCore/native-or-another",
-  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
+  "precommit.silent": true,
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "standard && node test.js"
+    "lint": "standard index.js test.js --fix --verbose",
+    "test": "npm-run-all -s lint test:*",
+    "test:api": "nyc --reporter lcov node test.js",
+    "test:report": "nyc report",
+    "prerelease": "npm test",
+    "release": "standard-version --sign --no-verify",
+    "git": "npm-run-all -s git:*",
+    "git:add": "git add --all",
+    "git:cz": "git-cz",
+    "commit": "npm-run-all -s test git"
   },
   "dependencies": {
-    "native-promise": "^1.0.0"
+    "extend-shallow": "^2.0.1",
+    "native-promise": "^1.0.1",
+    "semver": "^5.3.0",
+    "try-catch-callback": "^2.0.2"
   },
   "devDependencies": {
-    "cross-spawn": "^5.0.0",
-    "mukla": "^0.4.4",
-    "pinkie": "^2.0.1",
-    "semver": "^5.0.3",
-    "spawn-sync": "^1.0.15"
+    "commitizen": "~2.7.0",
+    "cross-spawn": "^5.1.0",
+    "cz-conventional-changelog": "1.1.5",
+    "mukla": "^0.4.9",
+    "npm-run-all": "~3.1.2",
+    "nyc": "^10.1.2",
+    "pre-commit": "^1.2.2",
+    "spawn-sync": "^1.0.15",
+    "standard": "^9.0.0",
+    "standard-version": "^4.0.0"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "register.js"
   ],
-  "keywords": [
-    "always",
-    "always-promise",
-    "bluebird",
-    "custom",
-    "native",
-    "pinkie",
-    "promise"
-  ]
+  "keywords": [],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "verb": {
+    "run": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 3
+    },
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "related": {
+      "list": [
+        "always-done",
+        "minibase",
+        "try-catch-core"
+      ],
+      "highlight": "always-done"
+    },
+    "lint": {
+      "reflinks": true
+    }
+  }
 }
