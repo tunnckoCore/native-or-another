@@ -1,3 +1,31 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/tunnckocore/native-or-another/compare/v4.0.0...v5.0.0) (2017-03-17)
+
+
+### Bug Fixes
+
+* **package:** add keywords ([c45e56f](https://github.com/tunnckocore/native-or-another/commit/c45e56f))
+* **readme:** update related list ([0badd4b](https://github.com/tunnckocore/native-or-another/commit/0badd4b))
+
+
+### Code Refactoring
+
+* **rewrite:** update boilerplate and rethink it ([00e29b8](https://github.com/tunnckocore/native-or-another/commit/00e29b8))
+
+
+### BREAKING CHANGES
+
+* **rewrite:** main export now expose a Promise constructor; use native-or-another/register if you
+want to load custom promise for node < 0.12; register expects an "opts" object with "Promise" and
+"global" properties; if opts.global is false, it won't attach/add promise to global.Promise - this
+is enabled by default
+
+
+
 
 
 ## v4.0.0 - 2016-08-25

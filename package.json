@@ -1,6 +1,6 @@
 {
   "name": "native-or-another",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Guaranteed way for getting a Promise. Always native Promise if available, otherwise looks for common promise libraries and loads which is installed. Allows registering custom Promise implementation in node < 0.12 versions",
   "repository": "tunnckoCore/native-or-another",
   "author": "Charlike Mike Reagent <@tunnckoCore> (https://i.am.charlike.online)",
