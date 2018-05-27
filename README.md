@@ -1,13 +1,13 @@
-# native-or-another [![NPM version](https://img.shields.io/npm/v/native-or-another.svg?style=flat)](https://www.npmjs.com/package/native-or-another) [![mit license][license-img]][license-url] [![NPM monthly downloads](https://img.shields.io/npm/dm/native-or-another.svg?style=flat)](https://npmjs.org/package/native-or-another) [![npm total downloads][downloads-img]][downloads-url]
+# native-or-another [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url]
 
 > Guaranteed way for getting a Promise. Always native Promise if available, otherwise looks for common promise libraries and loads which is installed. Allows registering custom Promise implementation in node < 0.12 versions
 
-[![code climate][codeclimate-img]][codeclimate-url] 
 [![code style][standard-img]][standard-url] 
 [![linux build][travis-img]][travis-url] 
 [![windows build][appveyor-img]][appveyor-url] 
 [![code coverage][coverage-img]][coverage-url] 
-[![dependency status][david-img]][david-url]
+[![dependency status][david-img]][david-url] 
+[![npm downloads][downloads-img]][downloads-url] 
 [![paypal donate][paypalme-img]][paypalme-url] 
 
 _Pretty much like [any-promise][], but works a bit different & better._
@@ -198,23 +198,17 @@ _Project scaffolded using [charlike][] cli._
 [verb-generate-readme]: https://github.com/verbose/verb-generate-readme
 [verb]: https://github.com/verbose/verb
 
-[license-url]: https://www.npmjs.com/package/native-or-another
-[license-img]: https://img.shields.io/npm/l/native-or-another.svg
-
 [downloads-url]: https://www.npmjs.com/package/native-or-another
 [downloads-img]: https://img.shields.io/npm/dt/native-or-another.svg
 
-[codeclimate-url]: https://codeclimate.com/github/tunnckoCore/native-or-another
-[codeclimate-img]: https://img.shields.io/codeclimate/github/tunnckoCore/native-or-another.svg
-
-[travis-url]: https://travis-ci.org/tunnckoCore/native-or-another
-[travis-img]: https://img.shields.io/travis/tunnckoCore/native-or-another/master.svg?label=linux
+[travis-url]: https://travis-ci.org/olstenlarck/native-or-another
+[travis-img]: https://img.shields.io/travis/olstenlarck/native-or-another/master.svg?label=linux
 
 [appveyor-url]: https://ci.appveyor.com/project/tunnckoCore/native-or-another
 [appveyor-img]: https://img.shields.io/appveyor/ci/tunnckoCore/native-or-another/master.svg?label=windows
 
-[coverage-url]: https://codecov.io/gh/tunnckoCore/native-or-another
-[coverage-img]: https://img.shields.io/codecov/c/github/tunnckoCore/native-or-another/master.svg
+[coverage-url]: https://codecov.io/gh/olstenlarck/native-or-another
+[coverage-img]: https://img.shields.io/codecov/c/github/olstenlarck/native-or-another/master.svg
 
 [david-url]: https://david-dm.org/tunnckoCore/native-or-another
 [david-img]: https://img.shields.io/david/tunnckoCore/native-or-another.svg
@@ -224,4 +218,17 @@ _Project scaffolded using [charlike][] cli._
 
 [paypalme-url]: https://www.paypal.me/tunnckoCore
 [paypalme-img]: https://img.shields.io/badge/paypal-donate-brightgreen.svg
+
+
+<!-- -->
+
+[npmv-url]: https://www.npmjs.com/package/native-or-another
+[npmv-img]: https://img.shields.io/npm/v/native-or-another.svg?label=npm%20version
+
+[github-release-url]: https://github.com/olstenlarck/native-or-another/releases/latest
+[github-release-img]: https://img.shields.io/github/tag/olstenlarck/native-or-another.svg?label=github%20tag
+
+[license-url]: https://github.com/olstenlarck/native-or-another/blob/master/LICENSE
+[license-img]: https://img.shields.io/badge/license-MIT-blue.svg
+
 
