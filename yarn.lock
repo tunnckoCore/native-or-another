@@ -338,7 +338,15 @@ circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
-clean-stacktrace@^1.0.0:
+clean-stacktrace-metadata@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/clean-stacktrace-metadata/-/clean-stacktrace-metadata-1.0.6.tgz#e0fc7b59be42820ba39c46b45280bb445b412a96"
+
+clean-stacktrace-relative-paths@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/clean-stacktrace-relative-paths/-/clean-stacktrace-relative-paths-1.0.4.tgz#b318ce059abab31f3ce58aa702575d205bf3b9f4"
+
+clean-stacktrace@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/clean-stacktrace/-/clean-stacktrace-1.1.0.tgz#8b8cdc87f640daaba9c595ab6edb897b63b0ce33"
   dependencies:
@@ -1053,6 +1061,13 @@ find-cache-dir@^0.1.1:
     mkdirp "^0.5.1"
     pkg-dir "^1.0.0"
 
+find-callsite@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/find-callsite/-/find-callsite-1.1.3.tgz#894e8736ba89b6504bb03f64063d927b5f640aa0"
+  dependencies:
+    clean-stacktrace-relative-paths "^1.0.3"
+    extend-shallow "^2.0.1"
+
 find-index@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/find-index/-/find-index-0.1.1.tgz#675d358b2ca3892d795a1ab47232f8b6e2e0dde4"
@@ -1183,8 +1198,10 @@ gaze@^0.5.1:
     globule "~0.1.0"
 
 generate-function@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-2.0.0.tgz#6858fe7c0969b7d4e9093337647ac79f60dfbe74"
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-2.3.1.tgz#f069617690c10c868e73b8465746764f97c3479f"
+  dependencies:
+    is-property "^1.0.2"
 
 generate-object-property@^1.1.0:
   version "1.2.0"
@@ -1653,12 +1670,17 @@ is-glob@^2.0.0, is-glob@^2.0.1:
   dependencies:
     is-extglob "^1.0.0"
 
+is-my-ip-valid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-my-ip-valid/-/is-my-ip-valid-1.0.0.tgz#7b351b8e8edd4d3995d4d066680e664d94696824"
+
 is-my-json-valid@^2.10.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/is-my-json-valid/-/is-my-json-valid-2.16.0.tgz#f079dd9bfdae65ee2038aae8acbc86ab109e3693"
+  version "2.20.4"
+  resolved "https://registry.yarnpkg.com/is-my-json-valid/-/is-my-json-valid-2.20.4.tgz#f027a2154727d14c0c73c946bf8ac5b5aee98796"
   dependencies:
     generate-function "^2.0.0"
     generate-object-property "^1.1.0"
+    is-my-ip-valid "^1.0.0"
     jsonpointer "^4.0.0"
     xtend "^4.0.0"
 
@@ -1713,7 +1735,7 @@ is-promise@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-2.1.0.tgz#79a2a9ece7f096e80f36d2b2f3bc16c1ff4bf3fa"
 
-is-property@^1.0.0:
+is-property@^1.0.0, is-property@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/is-property/-/is-property-1.0.2.tgz#57fe1c4e48474edd65b09911f26b1cd4095dda84"
 
@@ -1882,8 +1904,8 @@ jsonparse@^1.2.0:
   resolved "https://registry.yarnpkg.com/jsonparse/-/jsonparse-1.3.0.tgz#85fc245b1d9259acc6941960b905adf64e7de0e8"
 
 jsonpointer@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.1.0.tgz#501fb89986a2389765ba09e6053299ceb4f2c2cc"
 
 jsx-ast-utils@^1.3.4:
   version "1.4.0"
@@ -2222,17 +2244,16 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-mukla@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/mukla/-/mukla-0.4.8.tgz#42f84d3e89ff4b6fa13dd4117b71615e656d4e7e"
+mukla@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/mukla/-/mukla-0.4.9.tgz#195cf3954154597e35599fdbb4a13c2a41d733f4"
   dependencies:
     always-done "^1.1.0"
-    clean-stacktrace "^1.0.0"
     core-assert "^0.2.1"
     error-symbol "^0.1.0"
     extend-shallow "^2.0.1"
     get-fn-name "^1.0.0"
-    lazy-cache "^2.0.1"
+    stacktrace-metadata "^2.0.1"
     success-symbol "^0.1.0"
 
 multipipe@^0.1.2:
@@ -2907,6 +2928,16 @@ stack-utils-node-internals@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stack-utils-node-internals/-/stack-utils-node-internals-1.0.1.tgz#ab4a8a469b6cbec72b0bfb589df5e28b1d12281f"
 
+stacktrace-metadata@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/stacktrace-metadata/-/stacktrace-metadata-2.0.4.tgz#fd126eec712e998165dfc9ed848a92ba5d4b11db"
+  dependencies:
+    clean-stacktrace "^1.1.0"
+    clean-stacktrace-metadata "^1.0.6"
+    clean-stacktrace-relative-paths "^1.0.3"
+    extend-shallow "^2.0.1"
+    find-callsite "^1.1.3"
+
 standard-engine@~5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/standard-engine/-/standard-engine-5.4.0.tgz#e0e86959ea0786425d3383e40c1bf70d2f985579"
@@ -3274,8 +3305,8 @@ write@^0.2.1:
     mkdirp "^0.5.1"
 
 "xtend@>=4.0.0 <4.1.0-0", xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
 
 y18n@^3.2.1:
   version "3.2.1"
