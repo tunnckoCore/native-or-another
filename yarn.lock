@@ -338,7 +338,15 @@ circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
-clean-stacktrace@^1.0.0:
+clean-stacktrace-metadata@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/clean-stacktrace-metadata/-/clean-stacktrace-metadata-1.0.6.tgz#e0fc7b59be42820ba39c46b45280bb445b412a96"
+
+clean-stacktrace-relative-paths@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/clean-stacktrace-relative-paths/-/clean-stacktrace-relative-paths-1.0.4.tgz#b318ce059abab31f3ce58aa702575d205bf3b9f4"
+
+clean-stacktrace@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/clean-stacktrace/-/clean-stacktrace-1.1.0.tgz#8b8cdc87f640daaba9c595ab6edb897b63b0ce33"
   dependencies:
@@ -1052,6 +1060,13 @@ find-cache-dir@^0.1.1:
     commondir "^1.0.1"
     mkdirp "^0.5.1"
     pkg-dir "^1.0.0"
+
+find-callsite@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/find-callsite/-/find-callsite-1.1.3.tgz#894e8736ba89b6504bb03f64063d927b5f640aa0"
+  dependencies:
+    clean-stacktrace-relative-paths "^1.0.3"
+    extend-shallow "^2.0.1"
 
 find-index@^0.1.1:
   version "0.1.1"
@@ -2222,17 +2237,16 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-mukla@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/mukla/-/mukla-0.4.8.tgz#42f84d3e89ff4b6fa13dd4117b71615e656d4e7e"
+mukla@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/mukla/-/mukla-0.4.9.tgz#195cf3954154597e35599fdbb4a13c2a41d733f4"
   dependencies:
     always-done "^1.1.0"
-    clean-stacktrace "^1.0.0"
     core-assert "^0.2.1"
     error-symbol "^0.1.0"
     extend-shallow "^2.0.1"
     get-fn-name "^1.0.0"
-    lazy-cache "^2.0.1"
+    stacktrace-metadata "^2.0.1"
     success-symbol "^0.1.0"
 
 multipipe@^0.1.2:
@@ -2907,6 +2921,16 @@ stack-utils-node-internals@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stack-utils-node-internals/-/stack-utils-node-internals-1.0.1.tgz#ab4a8a469b6cbec72b0bfb589df5e28b1d12281f"
 
+stacktrace-metadata@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/stacktrace-metadata/-/stacktrace-metadata-2.0.4.tgz#fd126eec712e998165dfc9ed848a92ba5d4b11db"
+  dependencies:
+    clean-stacktrace "^1.1.0"
+    clean-stacktrace-metadata "^1.0.6"
+    clean-stacktrace-relative-paths "^1.0.3"
+    extend-shallow "^2.0.1"
+    find-callsite "^1.1.3"
+
 standard-engine@~5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/standard-engine/-/standard-engine-5.4.0.tgz#e0e86959ea0786425d3383e40c1bf70d2f985579"
@@ -3278,8 +3302,8 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
 
 yallist@^2.0.0:
   version "2.1.2"
